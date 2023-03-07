@@ -7,15 +7,14 @@ public class Duke {
      * Main entry-point for the java.duke.Duke application.
      */
     public static void main(String[] args) {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
-        System.out.println("What is your name?");
+        System.out.println("Hello! Welcome to BadMaths.");
+        System.out.println("How can I help you?");
 
         Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine());
+        //continuously check for user inputs
+        while(in.hasNext()){
+            String userInput = in.nextLine();
+            Parser parser = new Parser(userInput);
+        }
     }
 }
