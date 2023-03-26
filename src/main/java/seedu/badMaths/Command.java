@@ -100,6 +100,7 @@ public class Command {
         case "FindPrior":
             String priorityStr = toDo;
             Ui.printFindNotes(notes.relevantPriority(priorityStr));
+            break;
         case "FindMark":
             Ui.printFindNotes(notes.relevantMarked());
             break;

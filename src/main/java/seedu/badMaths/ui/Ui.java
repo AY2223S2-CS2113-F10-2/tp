@@ -4,8 +4,6 @@ import seedu.badMaths.Note;
 import seedu.badMaths.NotePriority;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Ui {
     public static void printIncorrectFormatEntered() {
