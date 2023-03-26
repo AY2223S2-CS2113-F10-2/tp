@@ -2,14 +2,21 @@ package seedu.badMaths;
 
 import seedu.badMaths.ui.Ui;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class BadMaths {
+    private static final String path = "data/notes.txt";
 
-    public static void commandChecker(String userInput, String command) {
+    private static final Set<String> VALID_COMMANDS = new HashSet<>(Arrays.asList(
+            "Graph", "Bye", "List", "Store", "Matrix", "Help", "FindInfo", "FindPrior", "FindMark", "FindUnmark", "Low",
+            "Medium", "High", "Delete", "Mark", "Unmark", "Clear", "Rank"
+    ));
+    public static void commandChecker(String command) {
         try {
-            if (!(command.equals("Graph") || command.equals("Bye") || command.equals("List") || command.equals("Store")
-                    || command.equals("Matrix") || command.equals("Help"))) {
+            if (!VALID_COMMANDS.contains(command)) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
@@ -21,6 +28,8 @@ public class BadMaths {
         System.out.println("This is BadMaths. You can type 'Help.' to learn what I can do for you :)");
         Command inputCommand = null;
 
+        NotesList notes = new NotesList(Storage.loadFile(path));
+
         while (true) {
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
@@ -28,7 +37,7 @@ public class BadMaths {
             Parser parser = new Parser(userInput);
             String command = parser.getCommand();
             String toDo = parser.getToDo();
-            commandChecker(userInput, command);
+            commandChecker(command);
 
             if (inputCommand == null) {
                 inputCommand = new Command(command, toDo);
@@ -38,7 +47,7 @@ public class BadMaths {
                 inputCommand.setToDo(toDo);
             }
 
-            inputCommand.executeCommand();
+            inputCommand.executeCommand(notes);
             if (userInput.equals("Bye.")) {
                 break;
             }
