@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.io.File;
+import java.io.IOException;
 
 public class BadMaths {
     private static final String path = "data/notes.txt";
@@ -24,10 +26,25 @@ public class BadMaths {
         }
     }
 
+    public static void notesCreator(String path) {
+        File notesFile = new File(path);
+        if (!notesFile.exists()) {
+            if (!notesFile.getParentFile().exists()) {
+                notesFile.getParentFile().mkdirs();
+            }
+            try {
+                notesFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("This is BadMaths. You can type 'Help.' to learn what I can do for you :)");
         Command inputCommand = null;
 
+        notesCreator(path);
         NotesList notes = new NotesList(Storage.loadFile(path));
 
         while (true) {
