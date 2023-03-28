@@ -14,11 +14,37 @@
 ## Features 
 
 
+
 ### Graph analyser and visualiser: `Graph. `
 This feature accepts a trigonometry equation (Sinusoidal signal) and outputs the amplitude, frequency, phase, and vertical shift.
 It also displays the image of the corresponding graph.
 
 Format: `Graph. [Amplitude]*[sin()]`
+
+### Store notes:
+Adds a new item to the Notes list.
+
+Format: `Store. <item description>`
+Example of usage: `Store. index`
+
+### Display all notes: 
+Display a list of all notes stored by user.
+
+Format: `List.`
+Example of usage: `List.`
+
+### Display a specific note: 
+Display a particular note in the Notes list.
+
+Format: `List. <number>`
+Example of usage: `List. 1`
+
+### Delete a specific note:
+Delete a particular note stored in the Notes list
+
+Format: `Delete. <number>`
+Example of usage: `Delete. 1`
+
 
 ## FAQ
 
