@@ -1,7 +1,6 @@
 package seedu.badMaths.trigograph;
 import seedu.badMaths.ui.Ui;
 
-
 public class TrigoGraph {
     private String trigoEqn;
     private double amplitude;
@@ -17,7 +16,7 @@ public class TrigoGraph {
     public void startGraphAnalysis() {
         TrigoGraphAnalyser analyser = new TrigoGraphAnalyser(trigoEqn);
         if(analyser.canStartAnalyser()){
-            assert analyser.canStartAnalyser() == true: "Information analysed.";
+            assert analyser.canStartAnalyser() == true;
             getGraphDetails(analyser);
             printGraphDetails();
             TrigoGraphVisualiser visualiser = new TrigoGraphVisualiser(amplitude,phase,frequency,verticalShift,trig);
@@ -33,7 +32,6 @@ public class TrigoGraph {
         phase = analyser.getPhase();
         verticalShift = analyser.getVerticalShift();
         trig = analyser.getTrigonometry();
-        assert true: "Information retrieved.";
     }
 
 
@@ -42,6 +40,26 @@ public class TrigoGraph {
         Ui.printFrequency(frequency);
         Ui.printPhase(phase);
         Ui.printVerticalShift(verticalShift);
-        assert true: "Information printed.";
+    }
+    public double getAmplitude() {
+        return amplitude;
+    }
+
+    public double getFrequency() {
+        return frequency;
+    }
+
+    public double getPhase() {
+        return phase;
+    }
+
+    public double getVerticalShift() {
+        return verticalShift;
+    }
+
+    public String getTrig() {
+        return trig;
     }
 }
+
+

@@ -1,6 +1,5 @@
 package seedu.badMaths;
 import java.util.ArrayList;
-import seedu.badMaths.ui.Ui;
 
 public class Quadratic {
 
@@ -46,7 +45,11 @@ public class Quadratic {
     }
 
     public void printAnswer(ArrayList<Double> xStore) {
-        Ui.printQuadraticAnswer(xStore);
+        if (xStore.get(0).isNaN() || xStore.get(1).isNaN()) {
+            System.out.println("x is imaginary.");
+        } else {
+            System.out.println("x1 = " + xStore.get(0) + " , x2 = " + xStore.get(1));
+        }
     }
 
     public void solveQuadratic() {
@@ -58,7 +61,8 @@ public class Quadratic {
             xStore = quadraticFormula(A, B, C);
             printAnswer(xStore);
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
-            Ui.printQuadraticFormatError();
+            System.out.println("Please use the format as shown below:");
+            System.out.println("ax^2 + bx + c");;
         }
     }
 }

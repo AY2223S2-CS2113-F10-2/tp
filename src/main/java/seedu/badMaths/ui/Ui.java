@@ -6,22 +6,6 @@ import seedu.badMaths.NotePriority;
 import java.util.ArrayList;
 
 public class Ui {
-
-    private static String logo = "\n" +
-            "____            _   __  __       _   _\n" +
-            "|  _ \\          | | |  \\/  |     | | | |\n" +
-            "| |_) | __ _  __| | | \\  / | __ _| |_| |__  ___\n" +
-            "|  _ < / _` |/ _` | | |\\/| |/ _` | __| '_ \\/ __|\n" +
-            "| |_) | (_| | (_| | | |  | | (_| | |_| | | \\__ \\\n" +
-            "|____/ \\__,_|\\__,_| |_|  |_|\\__,_|\\__|_| |_|___/";
-
-
-    public static void printWelcomeMessage() {
-        System.out.println(logo + "\nYou can type 'Help.' to learn what I can do for you :)");
-    }
-    public static void printLogo(){
-        System.out.println(logo);
-    }
     public static void printIncorrectFormatEntered() {
         System.out.println("Please enter the format as required.");
     }
@@ -158,19 +142,6 @@ public class Ui {
         System.out.println("Low priority notes:");
         for (Note note : lowPriorityNotes) {
             System.out.println(note.toString());
-        }
-    }
-
-    public static void printQuadraticFormatError() {
-        System.out.println("Please use the format as shown below:");
-        System.out.println("ax^2 + bx + c");;
-    }
-
-    public static void printQuadraticAnswer(ArrayList<Double> xStore) {
-        if (xStore.get(0).isNaN() || xStore.get(1).isNaN()) {
-            System.out.println("x is imaginary.");
-        } else {
-            System.out.println("x1 = " + xStore.get(0) + " , x2 = " + xStore.get(1));
         }
     }
 }

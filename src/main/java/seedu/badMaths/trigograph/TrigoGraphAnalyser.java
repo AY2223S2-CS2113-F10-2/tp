@@ -172,7 +172,7 @@ public class TrigoGraphAnalyser {
         splitPhasorsIntoFreq(phase);
     }
 
-    public void findFreqForNoPhasors(String phasors) {
+    private void findFreqForNoPhasors(String phasors) {
         phase = 0.0;
         boolean isFreqNegative = testForNegativeFreq(phasors);
         findFreq(phasors,isFreqNegative);

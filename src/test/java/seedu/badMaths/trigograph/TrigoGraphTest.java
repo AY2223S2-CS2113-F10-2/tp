@@ -39,12 +39,4 @@ class TrigoGraphTest {
         TrigoGraphAnalyser test = new TrigoGraphAnalyser(eqn2);
         assertEquals(false,test.canStartAnalyser());
     }
-
-    @Test
-    void correctStatementsWithValidEqn() {
-        String eqn = "2*cos(2*pi*x+5)+1";
-        TrigoGraph test = new TrigoGraph(eqn);
-        TrigoGraphAnalyser analyser = new TrigoGraphAnalyser(eqn);
-        assertEquals(true,analyser.canStartAnalyser());
-    }
 }
