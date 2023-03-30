@@ -173,7 +173,7 @@ eventually forms the sine graph.
 //{Describe the design and implementation of the product. 
 //Use UML diagrams and short code snippets where applicable.}
 
-### 🤖 Matrix
+### Matrix
 
 The Matrix feature supports various basic matrix calculations below:
 * Matrix multiplication
