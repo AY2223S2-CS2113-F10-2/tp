@@ -9,41 +9,26 @@ public class Quadratic {
         this.toDo = toDo;
     }
 
-    public double findA() {
+    public int findA() {
         String stringA = toDo.substring(0, toDo.indexOf("x"));
-        if (stringA.equals("-")) {
-            return -1;
-        } else {
-            if (stringA.isEmpty()) {
-                return 1;
-            } else {
-                return Double.parseDouble(stringA);
-            }
-        }
+        return Integer.parseInt(stringA);
     }
 
-    public double findB() {
+    public int findB() {
         String sign = toDo.substring(toDo.indexOf("^2") + 3, toDo.indexOf("^2") + 4);
         String stringB = toDo.substring(toDo.indexOf("^2") + 5, toDo.indexOf("x "));
-        if (stringB.isEmpty()) {
-            if (sign.equals("+")) {
-                return 1;
-            } else {
-                return -1;
-            }
+        int B = Integer.parseInt(stringB);
+        if (sign.equals("+")) {
+            return B;
         } else {
-            if (sign.equals("+")) {
-                return Double.parseDouble(stringB);
-            } else {
-                return Double.parseDouble(stringB) * (-1);
-            }
+            return B*(-1);
         }
     }
 
-    public double findC() {
+    public int findC() {
         String sign = toDo.substring(toDo.indexOf("x ") + 2, toDo.indexOf("x ") + 3);
         String stringC = toDo.substring(toDo.indexOf("x ") + 4);
-        double C = Double.parseDouble(stringC);
+        int C = Integer.parseInt(stringC);
         if (sign.equals("+")) {
             return C;
         } else {
@@ -51,7 +36,7 @@ public class Quadratic {
         }
     }
 
-    public ArrayList<Double> quadraticFormula(double A, double B, double C) {
+    public ArrayList<Double> quadraticFormula(int A, int B, int C) {
         double x1 = (-B + Math.sqrt(B*B - 4*A*C))/(2*A);
         double x2 = (-B - Math.sqrt(B*B - 4*A*C))/(2*A);
         ArrayList<Double> xStore = new ArrayList<>();
@@ -66,9 +51,9 @@ public class Quadratic {
 
     public void solveQuadratic() {
         try {
-            double A = findA();
-            double B = findB();
-            double C = findC();
+            int A = findA();
+            int B = findB();
+            int C = findC();
             ArrayList<Double> xStore = new ArrayList<>();
             xStore = quadraticFormula(A, B, C);
             printAnswer(xStore);
